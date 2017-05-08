@@ -1,0 +1,56 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-family: arial;
+    overflow: hidden;
+}
+
+.mWord {
+    text-align: center;
+    font-size: 30px;
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 5px;
+}
+
+.clavierFlex {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+}
+
+.clavier {
+    text-align: center;
+    font-size: 30px;
+    /*font-weight: bold;*/
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    background-color: darkslategray;
+    color: white;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+.img-pendu {
+    width: 155px;
+    height: 141.5px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 15px;
+}
+
+input {
+    margin: 15px;
+    width: 35%;
+    height: 35px;
+    padding: 5px;
+    text-align: center;
+}

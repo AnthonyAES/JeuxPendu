@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jeu du pendu</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    
+    <body>
+        <div class="img-pendu">
+            <img src="images/pendu.jpg" alt="image représentant le jeu du pendu" width="932" height="283">
+        </div>
+        <div class="spans">
+        </div>
+        <!--<span class="mWord"></span>-->
+        <input type="text" class="inText" required>
+        <button type="submit">Ok</button>
+        <div class="clavierFlex">
+            <p class="clavier cA" value="A">a</p>
+            <p class="clavier cB" value="B">b</p>
+            <p class="clavier cC" value="C">c</p>
+            <p class="clavier cD" value="D">d</p>
+            <p class="clavier cE" value="E">e</p>
+            <p class="clavier cF" value="F">f</p>
+            <p class="clavier cG" value="G">g</p>
+            <p class="clavier cH" value="H">h</p>
+            <p class="clavier cI" value="I">i</p>
+            <p class="clavier cJ" value="J">j</p>
+            <p class="clavier cK" value="K">k</p>
+            <p class="clavier cL" value="L">l</p>
+            <p class="clavier cL" value="M">m</p>
+            <p class="clavier cN" value="N">n</p>
+            <p class="clavier cO" value="O">o</p>
+            <p class="clavier cP" value="P">p</p>
+            <p class="clavier cQ" value="Q">q</p>
+            <p class="clavier cR" value="R">r</p>
+            <p class="clavier cS" value="S">s</p>
+            <p class="clavier cT" value="T">t</p>
+            <p class="clavier cU" value="U">u</p>
+            <p class="clavier cV" value="V">v</p>
+            <p class="clavier cW" value="W">w</p>
+            <p class="clavier cX" value="X">x</p>
+            <p class="clavier cY" value="Y">y</p>
+            <p class="clavier cZ" value="Z">z</p>
+        </div>
+        
+        <script>
+            var clavier = document.querySelector(".clavier");
+            var clavierA = document.querySelector(".cA");
+            var clavierB = document.querySelector(".cB");
+            var clavierC = document.querySelector(".cC");
+            var clavierD = document.querySelector(".cD");
+            var clavierE = document.querySelector(".cE");
+            var clavierF = document.querySelector(".cF");
+            var clavierG = document.querySelector(".cG");
+            var clavierH = document.querySelector(".cH");
+            var clavierI = document.querySelector(".cI");
+            var clavierJ = document.querySelector(".cJ");
+            var clavierK = document.querySelector(".cK");
+            var clavierL = document.querySelector(".cL");
+            var clavierM = document.querySelector(".cM");
+            var clavierN = document.querySelector(".cN");
+            var clavierO = document.querySelector(".cO");
+            var clavierP = document.querySelector(".cP");
+            var clavierQ = document.querySelector(".cQ");
+            var clavierR = document.querySelector(".cR");
+            var clavierS = document.querySelector(".cS");
+            var clavierT = document.querySelector(".cT");
+            var clavierU = document.querySelector(".cU");
+            var clavierV = document.querySelector(".cV");
+            var clavierW = document.querySelector(".cW");
+            var clavierX = document.querySelector(".cX");
+            var clavierY = document.querySelector(".cY");
+            var clavierZ = document.querySelector(".cZ");
+            var clavierValue = document.querySelector(".clavier").Value;
+            var text = document.querySelector(".inText"); 
+            var words = ["bleu", "rouge", "blanc", "vert", "jaune", "violet", "noire", "orange", "rose", "pourpre"];
+            var mysteryWord = words[Math.floor(Math.random()*words.length)];
+            
+            
+            console.log(mysteryWord);
+            
+            for(i=0; i<mysteryWord.length; i++){
+                var decompWord = mysteryWord.charAt(i);
+                var cacheText = decompWord.replace(decompWord, "_");
+                var divSpan = document.querySelector(".spans");
+                var btnOk = document.querySelector("button");
+                
+                var spanText = document.createElement("span");
+                spanText.className = "mWord";
+                divSpan.appendChild(spanText);
+                spanText.innerHTML = cacheText;
+                
+                btnOk.addEventListener("click", btnOkCheck);
+                
+                function btnOkCheck() {
+                    if(1 == 1){
+                    console.log(decompWord);
+                        spanText.innerHTML = decompWord;
+                    }else{
+                        console.log("oups")
+                    }
+                };
+                
+                clavier.addEventListener("click", listenValue);
+                console.log(mysteryWord.charAt(i));
+                function listenValue() {
+                    if(clavierA.innerText == mysteryWord.charAt(2)) {
+                        console.log("ok");
+                        
+                    }else{
+                        console.log("bad")
+                    }
+                };
+            };
+        </script>
+    </body>
+</html>
