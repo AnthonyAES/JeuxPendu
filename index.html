@@ -14,7 +14,7 @@
         </div>
         <!--<span class="mWord"></span>-->
         <input type="text" class="inText" required>
-        <button type="submit">Ok</button>
+        <button type="text">Ok</button>
         <div class="clavierFlex">
             <p class="clavier cA" value="A">a</p>
             <p class="clavier cB" value="B">b</p>
@@ -74,9 +74,9 @@
             var clavierZ = document.querySelector(".cZ");
             var clavierValue = document.querySelector(".clavier").Value;
             var text = document.querySelector(".inText"); 
-            var words = ["bleu", "rouge", "blanc", "vert", "jaune", "violet", "noire", "orange", "rose", "pourpre"];
+            var words = ["bleu", "rouge", "blanc", "vert", "jaune", "violet", "noir", "orange", "rose", "pourpre"];
+            var alphanet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
             var mysteryWord = words[Math.floor(Math.random()*words.length)];
-            
             
             console.log(mysteryWord);
             
@@ -84,36 +84,42 @@
                 var decompWord = mysteryWord.charAt(i);
                 var cacheText = decompWord.replace(decompWord, "_");
                 var divSpan = document.querySelector(".spans");
-                var btnOk = document.querySelector("button");
-                
                 var spanText = document.createElement("span");
                 spanText.className = "mWord";
                 divSpan.appendChild(spanText);
                 spanText.innerHTML = cacheText;
             };
             
+            var btnOk = document.querySelector("button");
             btnOk.addEventListener("click", btnOkCheck);
-                
+
             function btnOkCheck() {
-                if(text.value == mysteryWord){
-                    console.log(decompWord);
-                    spanText.innerHTML = decompWord;
-                }else{
-                    console.log("oups")
-                }
-            };
-                
-                clavier.addEventListener("click", listenValue);
-                console.log(mysteryWord.charAt(i));
-                
-                function listenValue() {
-                    if(clavierA.innerText == mysteryWord.charAt(2)) {
-                        console.log("ok");
-                        
+                var recupSpan = document.querySelectorAll('.mWord');
+                var maSaisie = document.querySelector('.inText');
+                var win = 0;
+                for( i=0; i<mysteryWord.length; i++){
+                    if( maSaisie.value[i] != mysteryWord[i]){
+                        recupSpan[i].innerHTML = "_";
                     }else{
-                        console.log("bad")
+                        recupSpan[i].innerHTML = maSaisie.value[i];
+                        win = 1;
                     }
-                };
+                }
+                
+                if(win == 1){
+                    setTimeout( function(){
+                        alert("Tu as trouvé !");
+                    }, 500);
+                }else{
+                    setTimeout( function(){
+                        alert("Perdu !" + " Le mot était \n" + mysteryWord);
+                    }, 500);
+                }
+                
+                maSaisie.value =="";
+            };
+            
+            
         </script>
     </body>
 </html>
