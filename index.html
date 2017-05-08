@@ -91,11 +91,11 @@
                 divSpan.appendChild(spanText);
                 spanText.innerHTML = cacheText;
                 
-                btnOk.addEventListener("click", btnOkCheck);
+                /*btnOk.addEventListener("click", btnOkCheck);*/
                 
                 function btnOkCheck() {
                     if(1 == 1){
-                    console.log(decompWord);
+                        console.log(decompWord);
                         spanText.innerHTML = decompWord;
                     }else{
                         console.log("oups")
@@ -112,6 +112,8 @@
                         console.log("bad")
                     }
                 };
+                
+                btnOkCheck();
             };
         </script>
     </body>
